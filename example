@@ -8,7 +8,59 @@ public class Main {
         List <List<String>> ourList = new ArrayList<>();
         ourList.add(new ArrayList<>());
         ourList.add(new ArrayList<>());
+        ourList.get(1).add("test");
+        ourList.get(1).add("test2");
+        // ourList.get(1).remove(0);  - remove
         System.out.println(ourList);
 
     }
 }
+
+result:
+
+[[], [test, test2]]
+
+==========================
+==========================
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        List <List<String>> ourList = new ArrayList<>();
+        ourList.add(new ArrayList<>());
+        ourList.add(new ArrayList<>());
+        ourList.get(1).add("test");
+        ourList.get(1).add("test2");
+        ourList.get(1).remove(0);
+
+
+        List<String> lineList = new ArrayList<>();
+        lineList.add("element1");
+        lineList.add("element2");
+
+
+//        ourList.add(lineList);   добавляет ссылку а не значение
+
+        ourList.add(new ArrayList<>());  // добавляет значение а не ссылку
+        ourList.get(2).addAll(lineList); //
+        System.out.println(ourList);
+
+
+        ourList.get(1).addAll(0,lineList);
+        //System.out.println(ourList);
+
+        lineList.add("element3");
+        ourList.add(lineList);
+        for (List<String>line: ourList
+             ) {
+            System.out.println(line);
+
+        }
+
+результат:
+[[], [test2], [element1, element2]]
+[]
+[element1, element2, test2]
+[element1, element2]
+[element1, element2, element3]
