@@ -1,0 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
+
+// List inside list
+public class Main {
+
+    public static void main(String[] args) {
+        List <List<String>> ourList = new ArrayList<>();
+        ourList.add(new ArrayList<>());
+        System.out.println(ourList);
+
+    }
+}
